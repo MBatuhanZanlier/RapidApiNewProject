@@ -1,0 +1,76 @@
+﻿@model List<BookingHotelListViewModel.Hotel>
+@{
+    ViewData["Title"] = "HotelList";
+    Layout = "~/Views/Shared/_UILayoutSonaHotel.cshtml";
+}
+
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>İstediğin Oteller</h2>
+                    <div class="bt-option">
+                        <a href="./home.html">Ana Sayfa</a>
+                        <span>Hotel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="rooms-section spad">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item">
+                        <img src="@item.property.photoUrls[0].Replace("square60", "square480")" alt="">
+                        <div class="ri-text">
+                            <h4>@item.property.name</h4>
+                            <h4>@item.property.priceBreakdown.grossPrice.value.ToString("#,0.00") $<span>/Pernight</span></h4>
+
+                            <table>
+                                <tbody>
+
+                                    <tr>
+                                        <td class="r-o">Görüntülenme:</td>
+                                        <td>@item.property.reviewCount</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Otel Puanı:</td>
+                                        <td>@item.property.reviewScoreWord</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Rezerv Tarihi:</td>
+                                        <td>@item.property.checkinDate</td>
+
+                                    <tr>
+                                        <td class="r-o">Kalite Sınıfı:</td>
+                                        <td>@item.property.qualityClass</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <form method="post" asp-action="RoomDetail">
+                                <input type="hidden" name="hotelID" value="@item.hotel_id" />
+                                <input type="hidden" name="arrivalDate" value="@item.property.checkinDate" />
+                                <input type="hidden" name="departureDate" value="@item.property.checkoutDate" />
+                                <button class="btn primary-btn">Detaylar</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="col-lg-12">
+                <div class="room-pagination">
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">Next <i class="fa fa-long-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

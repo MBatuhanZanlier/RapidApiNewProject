@@ -1,0 +1,73 @@
+﻿@model BookingSearchViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayoutSonaHotel.cshtml";
+}
+
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="hero-text">
+                    <h1>Bir Otelden Daha Fazlası</h1>
+                    <p>
+                       En uygun ve en iyi oteller bir tıkla yakınınızda
+                    </p>
+                    <a href="#" class="primary-btn">En uygun Oteli Bul</a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
+                <div class="booking-form">
+                    <h3>
+                        Otel Rezervasyonu
+                    </h3>
+                    <form action="GetSearch" method="post">
+                        <div class="check-date">
+
+                            <label for="date-in">Şehir:</label>
+                            <input type="text" asp-for="cityName">
+                        </div>  
+                        <div class="check-date">
+                            <label for="date-in">Otele Giriş Tarihi:</label>
+                            <input type="text" class="date-input" asp-for="arrivalDate">
+                            <i class="icon_calendar"></i>
+                        </div>
+
+                        <div class="check-date">
+                            <label for="date-out">Otele Çıkış Tarihi:</label>
+                            <input type="text" class="date-input" asp-for="departureDate">
+                            <i class="icon_calendar"></i>
+                        </div>
+                        <div class="select-option">
+                            <label for="guest">Kişi Sayısı:</label>
+                            <select asp-for="adultCount">
+                                <option value="1">1 Yetişkin</option>
+                                <option value="2">2 Yetişkin</option>
+                                <option value="3">3 Yetişkin</option>
+                                <option value="4">4 Yetişkin</option>
+                                <option value="5">5 Yetişkin</option>
+                                <option value="6">6 Yetişkin</option>
+                            </select>
+                        </div>
+                        <div class="select-option">
+                            <label for="room">Oda:</label>
+                            <select asp-for="roomCount">
+                                <option value="1">1 Oda</option>
+                                <option value="2">2 Oda</option>
+                                <option value="3">3 Oda</option>
+                                <option value="4">4 Oda</option>
+                            </select>
+                        </div>
+                        <button type="submit">Otel Ara</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-slider owl-carousel">
+        <div class="hs-item set-bg" data-setbg="/sona-master/img/hero/hero-1.jpg"></div>
+        <div class="hs-item set-bg" data-setbg="/sona-master/img/hero/hero-2.jpg"></div>
+        <div class="hs-item set-bg" data-setbg="/sona-master/img/hero/hero-3.jpg"></div>
+    </div>
+</section>

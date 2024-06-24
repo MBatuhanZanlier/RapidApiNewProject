@@ -1,0 +1,16 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zxx">
+@await Component.InvokeAsync("_UILayoutHeadComponent")
+<body>
+    @await Component.InvokeAsync("_UILayoutNavbarComponent")
+    @await Component.InvokeAsync("_UILayoutHeaderComponent")
+     @RenderBody()        
+    @await Component.InvokeAsync("_UILayoutFooterComponent")
+@*     @await Component.InvokeAsync("_UILayoutSearchComponent") *@
+    @await Component.InvokeAsync("_UILayoutScriptComponent")
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿@model BookingDetailViewModel
+@{
+    ViewData["Title"] = "RoomDetail";
+    Layout = "~/Views/Shared/_UILayoutSonaHotel.cshtml";
+}
+
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>Hotel Deatils</h2>
+                    <div class="bt-option">
+                        <a href="./home.html">Ana Sayfa</a>
+                        <span>Hotel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="room-details-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="room-details-item">
+                    <img src="@TempData["Photo"]">
+                    <div class="rd-text">
+                        <div class="rd-title">
+                           <h3>@Model.data.hotel_name</h3>
+                            <div class="rdt-right">
+                                <div class="rating">
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star-half_alt"></i>
+                                </div>
+                                <a href="#">Booking Now</a>
+                            </div>
+                        </div>
+                        <h2><span>Available Rooms:@Model.data.available_rooms</span></h2>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="r-o">Description:</td>
+                                    <td>@Model.data.address</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Oda Büyüklüğü : </td>
+                                    <td>@Model.data.average_room_size_for_ufi_m2 /m2</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Konuşalan Diller     : </td>
+                                    <td>@Model.data.default_language</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Kahvaltı: </td>
+                                    <td>@Model.data.hotel_include_breakfast</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Aile Dostu: </td>
+                                    <td>@Model.data.is_family_friendly</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<br />
+
